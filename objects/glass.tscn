@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/Relax_items/glass/glass.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.377819, 0.565617, 0.344606 )
+
+[node name="glass" type="RigidBody" groups=[
+"disable_ray_pick",
+]]
+
+[node name="glass" type="MeshInstance" parent="."]
+transform = Transform( 0.257779, 0, 0, 0, 0.257779, 0, 0, 0, 0.257779, 0, -0.254106, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="col" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0449039, -0.00030008 )
+shape = SubResource( 1 )

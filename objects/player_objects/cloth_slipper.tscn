@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/clothes/slipper/slipper.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.41741, 0.521737, 0.412216 )
+
+[node name="cloth_slipper" type="StaticBody"]
+
+[node name="slipper" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0618421, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="col" type="CollisionShape" parent="." groups=[
+"cloth_slippers",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498497, 0 )
+shape = SubResource( 1 )

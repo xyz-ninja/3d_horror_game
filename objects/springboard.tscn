@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/springboard/springboard.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 0.340685, 3.41404 )
+
+[node name="springboard" type="StaticBody"]
+
+[node name="springboard" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0943269, 0, 0, 0, 3.24834, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="col" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.998771, -0.0495645, 0, 0.0495645, 0.998771, 0, 0.350923, 0.192178 )
+shape = SubResource( 1 )

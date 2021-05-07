@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player_cast.gd" type="Script" id=2]
+[ext_resource path="res://scripts/cam.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+height = 2.1
+
+[sub_resource type="RayShape" id=2]
+length = 2.04433
+slips_on_slope = true
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 1
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 0.35, 0.35, 0.35 )
+spread = 68.23
+scale_random = 0.1
+color = Color( 0.890196, 0, 0, 1 )
+
+[sub_resource type="QuadMesh" id=5]
+size = Vector2( 0.2, 0.2 )
+
+[node name="player" type="KinematicBody" groups=[
+"player",
+]]
+script = ExtResource( 1 )
+
+[node name="col" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="cam_pos" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03411, -0.0962057 )
+
+[node name="cam" type="InterpolatedCamera" parent="cam_pos"]
+fov = 85.0
+far = 215.0
+target = NodePath("..")
+speed = 4.0
+enabled = true
+script = ExtResource( 3 )
+
+[node name="cast" type="Area" parent="cam_pos"]
+script = ExtResource( 2 )
+
+[node name="ray" type="CollisionShape" parent="cam_pos/cast"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="p_vomit_blood" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.873764, -0.486351, 0, 0.486351, 0.873764, 0, 0.458206, -1.02608 )
+visible = false
+material_override = SubResource( 3 )
+cast_shadow = 0
+emitting = false
+amount = 50
+explosiveness = 0.7
+randomness = 0.04
+visibility_aabb = AABB( -1.32803, -1.30238, -1.92201, 2.65606, 2.60476, 3.84402 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+[connection signal="body_entered" from="cam_pos/cast" to="cam_pos/cast" method="_on_cast_body_entered"]
+[connection signal="body_exited" from="cam_pos/cast" to="cam_pos/cast" method="_on_cast_body_exited"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/Relax_items/cigarette/cigarette.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0220462, 0.22895, 0.0185934 )
+
+[node name="cigarette" type="RigidBody" groups=[
+"disable_ray_pick",
+]]
+
+[node name="cigarette" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.217271, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="col" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0161612, 0 )
+shape = SubResource( 1 )

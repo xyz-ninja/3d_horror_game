@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://textures/water.jpg" type="Texture" id=1]
+[ext_resource path="res://textures/13386.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/env/poolday_lvl_hub.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/pool_portal_gate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://units/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/level_hub.gd" type="Script" id=7]
+
+[sub_resource type="PanoramaSky" id=1]
+radiance_size = 0
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_energy = 0.38
+ambient_light_color = Color( 0.196078, 0.188235, 0.466667, 1 )
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+fog_depth_end = 20.0
+fog_height_max = 62.5
+
+[node name="level_hub" type="WorldEnvironment"]
+environment = SubResource( 2 )
+script = ExtResource( 7 )
+
+[node name="env" type="Spatial" parent="."]
+
+[node name="pool_inside" parent="env" instance=ExtResource( 3 )]
+transform = Transform( 0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0, 0, 0 )
+
+[node name="water" type="Sprite3D" parent="env"]
+transform = Transform( -3.94029e-07, 3.44669, -4.37114e-08, 0, -1.5066e-07, -1, -2.41853, -5.61537e-07, 7.12149e-15, 4.77971, 20.3402, -1.33758 )
+cast_shadow = 0
+modulate = Color( 0.0588235, 0.180392, 0.2, 1 )
+opacity = 0.71
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 1400 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="water2" type="Sprite3D" parent="env"]
+transform = Transform( -3.94029e-07, 3.44669, -4.37114e-08, 0, -1.5066e-07, -1, -2.41853, -5.61537e-07, 7.12149e-15, 4.77971, 19.4063, -1.33758 )
+cast_shadow = 0
+modulate = Color( 0.0588235, 0.180392, 0.2, 1 )
+opacity = 0.71
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 1400 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="gates" type="Spatial" parent="env"]
+
+[node name="pool_portal_gate" parent="env/gates" instance=ExtResource( 4 )]
+transform = Transform( -2.26926e-07, 0, -1.39286, 0, 1.39286, 0, 1, 0, -1.62921e-07, -6.8916, 3.24215, -34.4769 )
+
+[node name="portal_light" type="OmniLight" parent="env/gates"]
+transform = Transform( 1, 0, 0, 0, 0.979918, 0.199402, 0, -0.199402, 0.979918, 8.78698, 7.95709, 30.9712 )
+light_color = Color( 1, 0.262745, 0.262745, 1 )
+light_energy = 8.02
+light_indirect_energy = 0.02
+omni_range = 10.8247
+omni_attenuation = 2.07053
+
+[node name="pool_portal_gate2" parent="env/gates" instance=ExtResource( 4 )]
+transform = Transform( -2.26926e-07, 0, -1.39286, 0, 1.39286, 0, 1, 0, -1.62921e-07, 8.60205, 3.24215, -34.4769 )
+
+[node name="pool_portal_gate3" parent="env/gates" instance=ExtResource( 4 )]
+transform = Transform( 0.0185868, 0, 1.39262, 0, 1.39286, 0, -0.999827, 0, 0.0258887, 8.60072, 3.24215, 34.5985 )
+
+[node name="pool_portal_gate4" parent="env/gates" instance=ExtResource( 4 )]
+transform = Transform( 0.0185868, 0, 1.39262, 0, 1.39286, 0, -0.999827, 0, 0.0258887, -6.89026, 3.24215, 34.3106 )
+
+[node name="light" type="Spatial" parent="."]
+
+[node name="units" type="Spatial" parent="."]
+
+[node name="player" parent="units" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.46651, 0 )
+is_in_water = true
+
+[node name="gui" parent="." instance=ExtResource( 5 )]

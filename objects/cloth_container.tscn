@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/cloth_container/cloth_container.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0808826, 0.802519, 0.970183 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.235317, 1.48808, 1 )
+
+[node name="cloth_container" type="StaticBody"]
+
+[node name="cloth_container" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00804, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="col" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.869528, 1.02005, 0 )
+shape = SubResource( 1 )
+
+[node name="col2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900566, 1.02005, 0 )
+shape = SubResource( 1 )
+
+[node name="col3" type="CollisionShape" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.0336477, 1.02005, 0.859779 )
+shape = SubResource( 1 )
+
+[node name="col4" type="CollisionShape" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.0336477, 1.02005, -0.908954 )
+shape = SubResource( 1 )
+
+[node name="col5" type="CollisionShape" parent="."]
+transform = Transform( 2.65431e-14, 1.62921e-07, 1, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.62921e-07, 0.0336477, 0.469448, -0.0219129 )
+shape = SubResource( 1 )
+
+[node name="col6" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.773456, 1.83487, 0 )
+shape = SubResource( 2 )

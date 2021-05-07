@@ -1,0 +1,1094 @@
+[gd_scene load_steps=57 format=2]
+
+[ext_resource path="res://units/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/env/tree_fir.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/env/poolday_lvl1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/pixel_door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/skybox4.jpg" type="Texture" id=5]
+[ext_resource path="res://textures/2d_tree_fig.png" type="Texture" id=6]
+[ext_resource path="res://textures/2d_forest.png" type="Texture" id=7]
+[ext_resource path="res://textures/pool_window.png" type="Texture" id=8]
+[ext_resource path="res://objects/env/low_poly_palm_base.tscn" type="PackedScene" id=9]
+[ext_resource path="res://fonts/futura.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=11]
+[ext_resource path="res://fonts/mainlogo1.otf" type="DynamicFontData" id=12]
+[ext_resource path="res://objects/env/chair.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/rack.tscn" type="PackedScene" id=14]
+[ext_resource path="res://units/smoking_face.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/doll_toy.tscn" type="PackedScene" id=17]
+[ext_resource path="res://textures/water.jpg" type="Texture" id=18]
+[ext_resource path="res://objects/lounger.tscn" type="PackedScene" id=19]
+[ext_resource path="res://fonts/pixel4.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://objects/paper.tscn" type="PackedScene" id=21]
+[ext_resource path="res://fonts/pixel2.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://textures/white_texture.png" type="Texture" id=23]
+[ext_resource path="res://objects/cloth_container.tscn" type="PackedScene" id=24]
+[ext_resource path="res://textures/key_wardrobe.png" type="Texture" id=25]
+[ext_resource path="res://textures/poster_yume_nikki.png" type="Texture" id=26]
+[ext_resource path="res://textures/poster_pocket_protector.png" type="Texture" id=27]
+[ext_resource path="res://objects/wardrobe_window.tscn" type="PackedScene" id=28]
+[ext_resource path="res://objects/shower.tscn" type="PackedScene" id=29]
+[ext_resource path="res://textures/shower_floor.png" type="Texture" id=30]
+[ext_resource path="res://objects/player_objects/cloth_slipper.tscn" type="PackedScene" id=31]
+[ext_resource path="res://objects/circle_table.tscn" type="PackedScene" id=32]
+[ext_resource path="res://objects/springboard.tscn" type="PackedScene" id=33]
+[ext_resource path="res://objects/player_objects/dish_with_cocaine.tscn" type="PackedScene" id=34]
+[ext_resource path="res://textures/poster.jpg" type="Texture" id=35]
+[ext_resource path="res://gui.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scripts/level1.gd" type="Script" id=37]
+[ext_resource path="res://objects/player_objects/beer_mexico_monkey.tscn" type="PackedScene" id=38]
+[ext_resource path="res://objects/player_objects/cigarettes_pyro.tscn" type="PackedScene" id=39]
+[ext_resource path="res://objects/glass.tscn" type="PackedScene" id=40]
+[ext_resource path="res://objects/cigarette.tscn" type="PackedScene" id=41]
+[ext_resource path="res://objects/ashtray.tscn" type="PackedScene" id=42]
+[ext_resource path="res://trigger.tscn" type="PackedScene" id=43]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 5 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_custom_fov = 90.0
+background_color = Color( 0.337255, 0.172549, 0.172549, 1 )
+background_energy = 7.74
+ambient_light_energy = 3.63
+ambient_light_sky_contribution = 0.35
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_sun_color = Color( 1, 0.054902, 0.00784314, 1 )
+fog_depth_begin = 0.0
+fog_depth_end = 45.0
+fog_depth_curve = 1.8025
+fog_transmit_curve = 1.1487
+fog_height_curve = 27.8576
+tonemap_mode = 3
+auto_exposure_scale = 2.82
+auto_exposure_min_luma = 2.81
+auto_exposure_speed = 64.0
+ssao_radius = 128.0
+ssao_radius2 = 128.0
+ssao_bias = 8.0
+dof_blur_far_distance = 17.09
+dof_blur_far_transition = 14.25
+dof_blur_far_amount = 0.72
+dof_blur_far_quality = 0
+dof_blur_near_distance = 1.48
+glow_intensity = 0.32
+glow_strength = 1.24
+glow_blend_mode = 0
+glow_hdr_threshold = 0.88
+glow_hdr_scale = 1.38
+adjustment_enabled = true
+
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 3, 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 53.0006, 0.1, 86.8734 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 36.2694, 4.99006, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 12 )
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends StaticBody
+
+func is_available_to_pick():
+	if $ray.get_collider() == null or !$ray.get_collider().is_in_group('prop_paper'):
+		return true
+	else:
+		return false
+"
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.18, 0.001, 0.337 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 22 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1.15064, 0.94964, 23.05 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 20 )
+
+[node name="level1" type="WorldEnvironment" groups=[
+"level1",
+]]
+environment = SubResource( 2 )
+script = ExtResource( 37 )
+
+[node name="env" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0910522, 0 )
+
+[node name="static" type="StaticBody" parent="env" groups=[
+"disable_ray_pick",
+]]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floor_m" type="MeshInstance" parent="env/static"]
+transform = Transform( 6.52168, 0, 0, 0, 1, 0, 0, 0, 8.59888, 0, 0, 0 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="c" type="CollisionShape" parent="env/static"]
+shape = SubResource( 4 )
+
+[node name="c2" type="CollisionShape" parent="env/static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.86239, 4.71964, 73.2617 )
+shape = SubResource( 5 )
+
+[node name="c3" type="CollisionShape" parent="env/static"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7488, 4.71964, 53.2175 )
+shape = SubResource( 5 )
+
+[node name="c4" type="CollisionShape" parent="env/static"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.1888, 4.71964, 50.5756 )
+shape = SubResource( 5 )
+
+[node name="outside" type="Spatial" parent="env"]
+
+[node name="2d" type="Spatial" parent="env/outside"]
+
+[node name="back_forest" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.831, 0, 0, 0, 2.711, 0, 4.27469e-07, 0, 0, 0.00333118, 2.83864, 88.5854 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 258 )
+
+[node name="back_forest2" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.83103, 0, -9.22466e-07, 0, 2.71124, 0, 3.25841e-07, 0, -1, 5.52951, 1.91865, 92.5594 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 258 )
+
+[node name="back_forest10" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.83103, 0, -9.22466e-07, 0, 2.71124, 0, 3.25841e-07, 0, -1, 7.44602, 2.37541, 95.9085 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 258 )
+
+[node name="back_forest6" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.40706, -1.42718, -7.8432e-07, -1.49023, 2.30521, -4.85579e-07, 3.25841e-07, 0, -1, 26.0031, 9.61494, 88.976 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 258 )
+
+[node name="back_forest7" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -4.61233e-07, 0, -1, 0, 2.71124, 0, 2.83103, 0, -1.62921e-07, 53.315, 41.9381, 60.7379 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 258 )
+
+[node name="back_forest8" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -4.61233e-07, 0, -1, 0, 2.71124, 0, 2.83103, 0, -1.62921e-07, 53.3205, 30.4271, -10.7156 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3500, 258 )
+
+[node name="back_forest9" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( 3.71439, -1.3615, 0, 1.42166, 3.55723, 0, 0, 0, 1, 35.4221, 24.0915, -59.5738 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1000, 258 )
+
+[node name="back_forest3" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -4.61233e-07, 0, 1, 0, 2.71124, 0, -2.83103, 0, -1.62921e-07, -29.2803, 5.71478, 23.6975 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5000, 258 )
+
+[node name="back_forest4" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -0.11006, 0, 0.999244, 0, 2.71124, 0, -2.82889, 0, -0.0388763, -34.3042, 4.96833, 23.38 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5000, 258 )
+
+[node name="back_forest11" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -0.11006, 0, 0.999244, 0, 2.71124, 0, -2.82889, 0, -0.0388763, -36.9639, 5.63522, 26.8055 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5000, 258 )
+
+[node name="back_forest5" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -0.11006, 0, 0.999244, 0, 2.71124, 0, -2.82889, 0, -0.0388763, -29.8486, 6.35827, 17.2973 )
+visible = false
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5000, 258 )
+
+[node name="tree_fig" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 52.8004, 41.6218, 32.588 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig2" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 51.2479, 40.2802, 37.8412 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig17" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -14.8512, -8.47564, 0.246066, -5.00142, 17.35, 0.419374, -6.58236, 5.94001, -0.873829, 18.8297, 16.3617, -57.4063 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig18" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -15.6316, -3.84276, 0.343574, -1.10811, 18.9233, 0.344064, -6.58236, 5.94001, -0.873829, 28.2075, 29.5586, -55.9086 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig19" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -10.6255, -9.35885, 0.628168, -4.17304, 17.7918, 0.405135, -12.593, 2.00088, -0.664282, 32.2363, 17.0323, -41.3086 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig20" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -8.32814, -8.14915, 1.5456, -4.98302, 18.4073, 0.57936, -13.9538, -1.70969, -1.12936, 44.9531, 26.5474, -29.5977 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig3" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.28089e-06, 0, 1, 0, 14, 0, -14, 0, -1.62921e-07, 52.777, 41.0965, 41.9407 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig5" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.28089e-06, 0, 1, 0, 14, 0, -14, 0, -1.62921e-07, 52.777, 41.0965, 49.626 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig6" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.28089e-06, 0, 1, 0, 14, 0, -14, 0, -1.62921e-07, 52.777, 42.4321, 59.0306 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig7" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -2.28089e-06, 0, 1, 0, 14, 0, -14, 0, -1.62921e-07, 52.777, 41.0965, 67.0721 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig8" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( 6.93111, 0, 0.868848, 0, 14, 0, -12.1639, 0, 0.495079, 52.777, 43.0924, 81.301 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig15" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -12.3681, 0, 0.468547, 0, 14, 0, -6.55965, 0, -0.883439, -25.3723, 4.90723, 88.8778 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig4" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 48.5813, 37.4326, 41.9407 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig9" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 50.4187, 39.3617, 46.1682 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig10" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 50.4187, 39.3637, 54.0323 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig11" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 50.4187, 39.3263, 49.4633 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig12" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 50.4187, 39.3263, 61.9767 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig13" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( -1.62921e-06, 0, 1, 0, 10, 0, -10, 0, -1.62921e-07, 50.4187, 39.3263, 70.8873 )
+texture = ExtResource( 6 )
+
+[node name="tree_fig14" type="Sprite3D" parent="env/outside/2d"]
+transform = Transform( 5.28572, 0, 0.848889, 0, 10, 0, -8.48889, 0, 0.528572, 50.4187, 39.3263, 83.4295 )
+texture = ExtResource( 6 )
+
+[node name="3d" type="Spatial" parent="env/outside"]
+
+[node name="low_poly_tree_fir" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.98143, -0.19182, 0, 0.19182, 0.98143, -15.6332, -6.18398e-07, 23.8299 )
+
+[node name="low_poly_tree_fir2" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2853, -0.73627, 33.3286 )
+
+[node name="low_poly_tree_fir3" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.475, 0, 36.9945 )
+
+[node name="low_poly_tree_fir4" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.743613, 0, 0, 0, 0.743613, 0, 0, 0, 1, -19.2546, 0, 42.3458 )
+
+[node name="low_poly_tree_fir5" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.851434, 0, 0.524462, 0, 1, 0, -0.524462, 0, 0.851434, -18.9377, -0.20694, 49.0562 )
+
+[node name="low_poly_tree_fir6" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.694052, 0, 0, 0, 0.694052, 0, 0, 0, 1, -18.4007, 0, 86.5808 )
+
+[node name="low_poly_tree_fir7" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.994955, 0.100327, 0, -0.100327, 0.994955, 0, 0, 0, 1, -9.82955, -2.98023e-08, 30.0103 )
+
+[node name="low_poly_tree_fir11" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2853, -0.73627, 62.6278 )
+
+[node name="low_poly_tree_fir12" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.475, 0, 66.2936 )
+
+[node name="low_poly_tree_fir13" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.743613, 0, 0, 0, 0.743613, 0, 0, 0, 1, -19.2546, 0, 71.6449 )
+
+[node name="low_poly_tree_fir14" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.851434, 0, 0.524462, 0, 1, 0, -0.524462, 0, 0.851434, -18.9377, -0.20694, 78.3553 )
+
+[node name="low_poly_tree_fir15" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.994955, 0.100327, 0, -0.100327, 0.994955, 0, 0, 0, 1, -9.82955, -2.98023e-08, 59.3094 )
+
+[node name="low_poly_tree_fir16" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.994955, 0.100327, 0, -0.100327, 0.994955, 0, 0, 0, 1, -14.2059, -2.98023e-08, 55.3139 )
+
+[node name="low_poly_tree_fir9" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.997555, -0.0698958, 0, 0.0698958, 0.997555, 0, 0, 0, 1, 14.8156, 0.0271774, 16.8424 )
+
+[node name="low_poly_tree_fir10" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.997555, -0.0698958, 0, 0.0698958, 0.997555, 0, 0, 0, 1, -16.8708, 0.0271774, 17.3839 )
+
+[node name="low_poly_tree_fir8" parent="env/outside/3d" instance=ExtResource( 2 )]
+transform = Transform( 0.945919, 0.0580693, 0.319164, -0.0550217, 0.998313, -0.018565, -0.319704, 0, 0.947518, -23.3864, -2.23517e-08, 86.4632 )
+
+[node name="pool_label" type="Spatial" parent="env/outside"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10971, 5.62284, 15.2156 )
+script = ExtResource( 11 )
+text = "ГЛАВНЫЙ БАССЕЙН"
+text_size = 20.0
+font = SubResource( 6 )
+align = 0
+color = Color( 1, 0.054902, 0.054902, 1 )
+metallic = 0.0
+roughness = 0.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="inside" type="Spatial" parent="env"]
+
+[node name="triggers" type="Spatial" parent="env/inside"]
+
+[node name="tr_return_normal_light" parent="env/inside/triggers" instance=ExtResource( 43 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0350044, 1.49865, -4.08974 )
+
+[node name="room_hallway" type="Spatial" parent="env/inside"]
+
+[node name="room_tip" type="Spatial" parent="env/inside/room_hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83723, 0.591467 )
+script = ExtResource( 11 )
+text = "К бассейну"
+text_size = 3.0
+font = SubResource( 7 )
+align = 0
+color = Color( 0, 0, 0, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="room_tip2" type="Spatial" parent="env/inside/room_hallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -11.8432, 5.42494, 10.9095 )
+script = ExtResource( 11 )
+text = "Гардероб и душ"
+text_size = 3.0
+font = SubResource( 7 )
+align = 0
+color = Color( 0, 0, 0, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="props" type="Spatial" parent="env/inside/room_hallway"]
+
+[node name="low_poly_palm_base" parent="env/inside/room_hallway/props" instance=ExtResource( 9 )]
+transform = Transform( -0.677518, 0, -0.389937, 0, 0.831827, 0, 0.321666, 0, -0.821316, -7.92804, 0, 4.52568 )
+
+[node name="low_poly_palm_base2" parent="env/inside/room_hallway/props" instance=ExtResource( 9 )]
+transform = Transform( -0.748571, 0, 0.0462701, 0, 0.75, 0, -0.0462701, 0, -0.748571, 9.75772, 0, 11.4683 )
+
+[node name="low_poly_palm_base3" parent="env/inside/room_hallway/props" instance=ExtResource( 9 )]
+transform = Transform( 0.0224329, 0.0603424, 0.746228, 0, 0.954469, -0.108957, -0.749664, 0.00180568, 0.02233, -4.1024, -7.45058e-09, 11.5707 )
+
+[node name="chair" parent="env/inside/room_hallway/props" instance=ExtResource( 13 )]
+transform = Transform( 1.20467, 0, 0, 0, 1.65689, 0, 0, 0, 1.37539, 4.33714, 0.281135, 3.91741 )
+
+[node name="rack" parent="env/inside/room_hallway/props" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1758, 0.0567827, 9.67962 )
+
+[node name="rack2" parent="env/inside/room_hallway/props" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1758, 0.0567827, 8.19972 )
+
+[node name="rack4" parent="env/inside/room_hallway/props" instance=ExtResource( 14 )]
+transform = Transform( -0.630784, 0, -0.775958, 0, 1, 0, 0.775958, 0, -0.630784, 10.6615, 0.0567827, 1.15021 )
+
+[node name="rack3" parent="env/inside/room_hallway/props" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, -0.00385721, 0.999993, 0, -0.999993, -0.00385721, -11.1758, 1.31335, 6.4663 )
+
+[node name="paper2" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.755842, 0, -0.654754, 0, 1, 0, 0.654754, 0, 0.755842, 1.99321, 2.26739, 7.0195 )
+
+[node name="paper3" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.755842, 0, -0.654754, 0, 1, 0, 0.654754, 0, 0.755842, 1.99426, 2.50238, 7.0195 )
+
+[node name="paper11" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95366, 2.94314, 7.0195 )
+
+[node name="paper12" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.755842, 0, -0.654754, 0, 1, 0, 0.654754, 0, 0.755842, 1.96482, 3.29516, 7.0195 )
+
+[node name="paper13" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.755842, 0, -0.654754, 0, 1, 0, 0.654754, 0, 0.755842, 2.01094, 3.53015, 7.0195 )
+
+[node name="paper4" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.936892, 0, 0.349619, 0, 1, 0, -0.349619, 0, 0.936892, 1.87632, 2.72411, 7.0195 )
+
+[node name="paper6" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.17617, 0.982981, -0.0520787, 0.0222713, -0.056873, -0.998133, -0.984108, 0.174681, -0.0319116, -11.1264, 0.882143, 7.58812 )
+sleeping = true
+
+[node name="paper7" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.17617, 0.982981, -0.0520787, 0.0222713, -0.056873, -0.998133, -0.984108, 0.174681, -0.0319116, -10.8774, 0.882143, 7.58812 )
+sleeping = true
+
+[node name="paper8" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.17617, 0.982981, -0.0520787, 0.0222713, -0.056873, -0.998133, -0.984108, 0.174681, -0.0319116, -10.6694, 0.882143, 7.58812 )
+sleeping = true
+
+[node name="paper9" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.174127, 0.984532, 0.0194012, 0.034807, 0.0135361, -0.999302, -0.984108, 0.174681, -0.0319116, -10.9614, 3.00302, 7.58812 )
+sleeping = true
+
+[node name="paper10" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( 0.174127, 0.984532, 0.0194012, 0.034807, 0.0135361, -0.999302, -0.984108, 0.174681, -0.0319116, -10.6494, 3.00302, 7.58812 )
+sleeping = true
+
+[node name="paper5" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( -0.994338, 0, 0.106264, 0, 1, 0, -0.106264, 0, -0.994338, 3.72782, 2.2015, 6.48648 )
+
+[node name="paper14" parent="env/inside/room_hallway/props" instance=ExtResource( 21 )]
+transform = Transform( -0.994983, 0.095968, -0.0282636, 0.0671667, 0.43142, -0.899648, -0.0741439, -0.897032, -0.435701, 7.58291, 0.731358, 5.93142 )
+mode = 1
+
+[node name="cigarettes_pyro" parent="env/inside/room_hallway/props" instance=ExtResource( 39 )]
+transform = Transform( -1.06733, 0, -1.98982, 0, 2.258, 0, 1.98982, 0, -1.06733, 9.56116, 2.22021, 6.67984 )
+
+[node name="cigarettes_pyro2" parent="env/inside/room_hallway/props" instance=ExtResource( 39 )]
+transform = Transform( -0.139072, 0.285556, -2.23555, -0.187708, -2.23349, -0.273615, -2.24588, 0.168989, 0.1613, 5.59872, 0.286043, 5.2646 )
+mode = 1
+
+[node name="wardrobe_key" type="StaticBody" parent="env/inside/room_hallway"]
+transform = Transform( 1.42184, 0, 0, 0, 1, 0, 0, 0, 1.42184, 1.9616, 2.01367, 7.1151 )
+script = SubResource( 8 )
+
+[node name="Sprite3D" type="Sprite3D" parent="env/inside/room_hallway/wardrobe_key"]
+transform = Transform( 1, 0, 0, 0, -0.11934, 0.992853, 0, -0.992853, -0.11934, 0, 0, 0 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape" type="CollisionShape" parent="env/inside/room_hallway/wardrobe_key"]
+shape = SubResource( 9 )
+
+[node name="ray" type="RayCast" parent="env/inside/room_hallway/wardrobe_key"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298083, 0, 0.0950637 )
+enabled = true
+cast_to = Vector3( 0, 0.3, 0 )
+
+[node name="poster2" type="Sprite3D" parent="env/inside/room_hallway"]
+transform = Transform( 1.94942, 0, 0.0396435, 0, 1.95095, 0, -0.0773424, 0, 0.999214, -5.93811, 3.06576, 0.656807 )
+texture = ExtResource( 26 )
+
+[node name="poster3" type="Sprite3D" parent="env/inside/room_hallway"]
+transform = Transform( -1.04824, -0.012615, -0.10207, -0.0364523, 0.900886, 0.938224, 0.0149569, 0.415316, -0.731035, 9.71588, 0.854436, 6.08557 )
+texture = ExtResource( 27 )
+
+[node name="poster4" type="Sprite3D" parent="env/inside/room_hallway"]
+transform = Transform( 3.5246, 0, 0, 0, 3.5246, 0, 0, 0, 1, 6.89019, 3.37329, 0.684793 )
+visible = false
+flip_h = true
+modulate = Color( 0.360784, 0.215686, 0.188235, 1 )
+texture = ExtResource( 35 )
+
+[node name="ashtray2" parent="env/inside/room_hallway" instance=ExtResource( 42 )]
+transform = Transform( 1.58262, 0, -1.22283, 0, 2, 0, 1.22283, 0, 1.58262, 8.44392, 2.05561, 6.91798 )
+
+[node name="cigarette" parent="env/inside/room_hallway/ashtray2" instance=ExtResource( 41 )]
+transform = Transform( 0.838353, 0.543596, -0.0408451, -0.129037, 0.125091, -0.983718, -0.529636, 0.829974, 0.175014, -0.200563, 0.284256, -0.165437 )
+
+[node name="room_wardrobe" type="Spatial" parent="env/inside"]
+
+[node name="props" type="Spatial" parent="env/inside/room_wardrobe" groups=[
+"wardrobe_props",
+]]
+
+[node name="doll_toy" parent="env/inside/room_wardrobe/props" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2117, 0.415154, 11.0867 )
+
+[node name="room_tip5" type="Spatial" parent="env/inside/room_wardrobe"]
+transform = Transform( -1.62921e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.62921e-07, -13.1366, 5.21631, 5.50686 )
+script = ExtResource( 11 )
+text = "Пожалуйста, сохраняйте чистоту! "
+text_size = 2.4
+font = SubResource( 10 )
+align = 2
+color = Color( 0, 0, 0, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="room_tip3" type="Spatial" parent="env/inside/room_wardrobe"]
+transform = Transform( -0.0166488, -0.999861, 0.000781059, 0.998762, -0.0166671, -0.0468558, 0.0468623, 0, 0.998901, -18.4462, 5.42494, 0.859323 )
+script = ExtResource( 11 )
+text = "Душ"
+text_size = 3.0
+font = SubResource( 7 )
+align = 0
+color = Color( 0, 0, 0, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="cloth_table" type="Spatial" parent="env/inside/room_wardrobe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494, -0.169902 )
+
+[node name="room_tip4" type="Spatial" parent="env/inside/room_wardrobe/cloth_table"]
+transform = Transform( -1.62921e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.62921e-07, -13.1366, 3.62306, 2.05662 )
+script = ExtResource( 11 )
+text = "ВЕРХНЯЯ"
+text_size = 1.7
+font = SubResource( 11 )
+align = 2
+color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="bg2" type="Sprite3D" parent="env/inside/room_wardrobe/cloth_table"]
+transform = Transform( -3.18999e-07, 0, -1, 0, 0.708053, 0, 1.68039, 0, -1.39821e-07, -13.1344, 3.62984, 2.10493 )
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 23 )
+
+[node name="cloth_table2" type="Spatial" parent="env/inside/room_wardrobe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494, 2.08281 )
+
+[node name="room_tip4" type="Spatial" parent="env/inside/room_wardrobe/cloth_table2"]
+transform = Transform( -1.62921e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.62921e-07, -13.1366, 3.62306, 2.05662 )
+script = ExtResource( 11 )
+text = "ШТАНЫ"
+text_size = 1.7
+font = SubResource( 11 )
+align = 2
+color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="bg2" type="Sprite3D" parent="env/inside/room_wardrobe/cloth_table2"]
+transform = Transform( -3.18999e-07, 0, -1, 0, 0.708053, 0, 1.68039, 0, -1.39821e-07, -13.1344, 3.62984, 2.10493 )
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 23 )
+
+[node name="cloth_table3" type="Spatial" parent="env/inside/room_wardrobe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494, 4.3474 )
+
+[node name="room_tip4" type="Spatial" parent="env/inside/room_wardrobe/cloth_table3"]
+transform = Transform( -1.62921e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.62921e-07, -13.1366, 3.62306, 2.05662 )
+script = ExtResource( 11 )
+text = "ОБУВЬ"
+text_size = 1.7
+font = SubResource( 11 )
+align = 2
+color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="bg2" type="Sprite3D" parent="env/inside/room_wardrobe/cloth_table3"]
+transform = Transform( -3.18999e-07, 0, -1, 0, 0.708053, 0, 1.68039, 0, -1.39821e-07, -13.1344, 3.62984, 2.10493 )
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 23 )
+
+[node name="cloth_table4" type="Spatial" parent="env/inside/room_wardrobe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494, 6.59419 )
+
+[node name="room_tip4" type="Spatial" parent="env/inside/room_wardrobe/cloth_table4"]
+transform = Transform( -1.62921e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.62921e-07, -13.1366, 3.62306, 2.05662 )
+script = ExtResource( 11 )
+text = "ПРОЧЕЕ"
+text_size = 1.7
+font = SubResource( 11 )
+align = 2
+color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="bg2" type="Sprite3D" parent="env/inside/room_wardrobe/cloth_table4"]
+transform = Transform( -3.18999e-07, 0, -1, 0, 0.708053, 0, 1.68039, 0, -1.39821e-07, -13.1344, 3.62984, 2.10493 )
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 23 )
+
+[node name="wardrobe_window" parent="env/inside/room_wardrobe" instance=ExtResource( 28 )]
+transform = Transform( -1, 0, 0, 0, 1, -8.74228e-08, 0, 8.74228e-08, 1, -20.8258, 6.8767, 12.678 )
+
+[node name="cloth_container_upper" parent="env/inside/room_wardrobe" instance=ExtResource( 24 )]
+transform = Transform( 1.06576, 0, 0, 0, 1, 0, 0, 0, 1.06576, -14.4279, 0, 1.96556 )
+
+[node name="cloth_container_legs" parent="env/inside/room_wardrobe" instance=ExtResource( 24 )]
+transform = Transform( 1.06576, 0, 0, 0, 1, 0, 0, 0, 1.06576, -14.4279, 0, 4.19788 )
+
+[node name="cloth_container_shoe" parent="env/inside/room_wardrobe" instance=ExtResource( 24 )]
+transform = Transform( 1.05715, 0, -0.135218, 0, 1, 0, 0.135218, 0, 1.05715, -14.4279, 0, 6.46346 )
+
+[node name="cloth_container_other" parent="env/inside/room_wardrobe" instance=ExtResource( 24 )]
+transform = Transform( 1.06576, 0, 0, 0, 1, 0, 0, 0, 1.06576, -14.4279, 0, 8.67017 )
+
+[node name="cloth_slipper2" parent="env/inside/room_wardrobe" groups=[
+"cloth_slippers",
+] instance=ExtResource( 31 )]
+transform = Transform( 1.38141, 0, 0.761479, 0, 1, 0, -0.761479, 0, 1.38141, -17.8932, 0.18393, 2.23928 )
+
+[node name="cloth_slipper3" parent="env/inside/room_wardrobe" groups=[
+"cloth_slippers",
+] instance=ExtResource( 31 )]
+transform = Transform( 1.38141, 0, 0.761479, 0, 1, 0, -0.761479, 0, 1.38141, -19.326, 0.18393, 2.23928 )
+
+[node name="room_pool" type="Spatial" parent="env/inside"]
+
+[node name="pool_label2" type="Spatial" parent="env/inside/room_pool"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.835809, 8.56523, -49.7019 )
+script = ExtResource( 11 )
+text = "СПОРТ
+ЭТО ЖИЗНЬ"
+text_size = 20.0
+font = SubResource( 6 )
+align = 2
+color = Color( 0.101961, 0, 1, 1 )
+metallic = 0.72
+roughness = 0.26
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="l" type="Spatial" parent="env/inside/room_pool"]
+
+[node name="SpotLight" type="SpotLight" parent="env/inside/room_pool/l" groups=[
+"negative_lamps",
+]]
+transform = Transform( 0.988715, 0.0206659, 0.148379, -0.149513, 0.0736164, 0.986015, 0.00945371, -0.997073, 0.0758754, 0, 13.4225, -13.2769 )
+light_color = Color( 0.937255, 1, 0.211765, 1 )
+light_energy = 3.83
+light_indirect_energy = 5.8
+shadow_enabled = true
+spot_range = 17.2009
+spot_angle = 42.8349
+
+[node name="SpotLight2" type="SpotLight" parent="env/inside/room_pool/l" groups=[
+"negative_lamps",
+]]
+transform = Transform( 0.988715, 0.0206659, 0.148379, -0.149513, 0.0736164, 0.986015, 0.00945371, -0.997073, 0.0758754, 0, 13.4225, -34.9743 )
+light_color = Color( 0.937255, 1, 0.211765, 1 )
+light_energy = 3.83
+light_indirect_energy = 5.8
+shadow_enabled = true
+spot_range = 17.2009
+spot_angle = 42.8349
+
+[node name="SpotLight3" type="SpotLight" parent="env/inside/room_pool/l" groups=[
+"negative_lamps",
+]]
+transform = Transform( 0.988715, 0.0206659, 0.148379, -0.149513, 0.0736164, 0.986015, 0.00945371, -0.997073, 0.0758754, 0, 13.4225, -23.876 )
+light_color = Color( 0.937255, 1, 0.211765, 1 )
+light_energy = 3.83
+light_indirect_energy = 5.8
+shadow_enabled = true
+spot_range = 17.2009
+spot_angle = 42.8349
+
+[node name="env" type="Spatial" parent="env/inside/room_pool"]
+
+[node name="buffer" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, 3.25841e-07, 0, -7.99614e-07, -2.30258, 0, 0, 0, 1.06576, -10.5337, 4.38892, -2.43563 )
+
+[node name="buffer2" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, -7.50276e-07, 0, -5.65773e-14, 3.75138e-07, 1.06576, -1.23955e-06, 8.21886, -6.19773e-07, -10.6599, 0.761467, -18.1316 )
+
+[node name="buffer3" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, 3.25841e-07, 0, -5.27807e-07, -1.51988, 0, 0, 0, 1.06576, -10.5337, 2.37445, -17.3226 )
+
+[node name="buffer4" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, -7.50276e-07, 0, -5.65773e-14, 3.75138e-07, 1.06576, -1.23955e-06, 8.21886, -6.19773e-07, -10.6599, 0.133976, -33.0186 )
+
+[node name="buffer5" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, 3.25841e-07, 0, -7.3141e-07, -2.10618, 0, 0, 0, 1.06576, -10.5337, 2.58428, -32.0679 )
+
+[node name="buffer6" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, 3.25841e-07, 0, -7.99614e-07, -2.30258, 0, 0, 0, 1.06576, -10.5337, 4.38892, -47.6066 )
+
+[node name="buffer8" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, 3.25841e-07, 0, -7.99614e-07, -2.30258, 0, 0, 0, 1.06576, 9.92174, 4.38892, -47.6066 )
+
+[node name="buffer7" parent="env/inside/room_pool/env" instance=ExtResource( 24 )]
+transform = Transform( -1.06576, -7.50276e-07, 0, -5.65773e-14, 3.75138e-07, 1.06576, -1.23955e-06, 8.21886, -6.19773e-07, -10.6599, 0.761467, -47.8673 )
+
+[node name="pool_window" type="Sprite3D" parent="env/inside/room_pool/env"]
+transform = Transform( -2.93257e-07, 0, 1, 0, 1.8, 0, -1.8, 0, -1.62921e-07, -12.1547, 6.11159, -25.2413 )
+opacity = 0.14
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2400, 104 )
+
+[node name="pool_window2" type="Sprite3D" parent="env/inside/room_pool/env"]
+transform = Transform( -2.93257e-07, 0, 1, 0, 1.8, 0, -1.8, 0, -1.62921e-07, 12.3937, 6.11159, -25.2413 )
+opacity = 0.14
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2400, 104 )
+
+[node name="water" type="Sprite3D" parent="env/inside/room_pool/env"]
+transform = Transform( -5.61538e-07, 3.44669, -5.61538e-07, 0, -1.62921e-07, -1, -2.41853, -3.94028e-07, 6.41954e-14, 4.77971, -0.521417, -26.3181 )
+cast_shadow = 0
+modulate = Color( 0.105882, 0.87451, 1, 1 )
+opacity = 0.71
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 1400 )
+
+[node name="water2" type="Sprite3D" parent="env/inside/room_pool/env"]
+transform = Transform( -5.61538e-07, 3.44669, -5.61538e-07, 0, -1.62921e-07, -1, -2.41853, -3.94028e-07, 6.41954e-14, 4.77971, -2.06713, -26.3181 )
+cast_shadow = 0
+modulate = Color( 0.105882, 0.87451, 1, 1 )
+opacity = 0.71
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 1400 )
+
+[node name="lounger" parent="env/inside/room_pool/env" instance=ExtResource( 19 )]
+transform = Transform( -0.00798691, 0, -0.750154, 0, 1, 0, 0.750154, 0, -0.00798691, -3.60215, 1.03409, -13.8586 )
+
+[node name="lounger6" parent="env/inside/room_pool/env" instance=ExtResource( 19 )]
+transform = Transform( -0.00798691, 0, -0.750154, 0, 1, 0, 0.750154, 0, -0.00798691, -3.60215, 1.03409, -8.73841 )
+
+[node name="lounger2" parent="env/inside/room_pool/env" instance=ExtResource( 19 )]
+transform = Transform( -0.00798691, 0, -0.750154, 0, 1, 0, 0.750154, 0, -0.00798691, -3.60215, 1.03409, -19.5715 )
+
+[node name="lounger3" parent="env/inside/room_pool/env" instance=ExtResource( 19 )]
+transform = Transform( -0.00798691, 0, -0.750154, 0, 1, 0, 0.750154, 0, -0.00798691, -3.60215, 1.03409, -25.4869 )
+
+[node name="lounger4" parent="env/inside/room_pool/env" instance=ExtResource( 19 )]
+transform = Transform( -0.00798691, 0, -0.750154, 0, 1, 0, 0.750154, 0, -0.00798691, -3.60215, 1.03409, -31.4051 )
+
+[node name="lounger5" parent="env/inside/room_pool/env" instance=ExtResource( 19 )]
+transform = Transform( -0.00798691, 0, -0.750154, 0, 1, 0, 0.750154, 0, -0.00798691, -3.60215, 1.03409, -36.9399 )
+
+[node name="rack6" parent="env/inside/room_pool/env" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -7.40924, 0.057, -48.8355 )
+
+[node name="rack7" parent="env/inside/room_pool/env" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -4.9764, 0.057, -48.8355 )
+is_open_by_default = true
+
+[node name="rack8" parent="env/inside/room_pool/env" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -2.45735, 0.057, -48.8355 )
+
+[node name="rack9" parent="env/inside/room_pool/env" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.148777, 0.057, -48.8355 )
+
+[node name="cigarettes_pyro2" parent="env/inside/room_pool/env/rack9" instance=ExtResource( 39 )]
+transform = Transform( 0.14533, -1.99425, 0.043189, -1.99455, -0.145838, -0.0224124, -0.0254972, 0.0414427, 1.99941, 0.220123, 2.74888, -0.640174 )
+
+[node name="rack10" parent="env/inside/room_pool/env" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 2.88797, 0.057, -48.8355 )
+
+[node name="rack11" parent="env/inside/room_pool/env" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 5.99489, 0.057, -48.8355 )
+is_open_by_default = true
+
+[node name="doll_toy5" parent="env/inside/room_pool/env" instance=ExtResource( 17 )]
+transform = Transform( 0.756901, -0.65206, -0.043806, 0.652745, 0.751007, 0.0995641, -0.0320232, -0.103954, 0.994066, -4.11351, 1.18121, -19.5153 )
+mode = 1
+sleeping = true
+
+[node name="shower_floor_texture" type="Sprite3D" parent="env/inside/room_pool/env"]
+transform = Transform( 2.53786, 0, 0, 0, -1.62921e-07, 1, 0, -2.53786, -4.1347e-07, -18.5765, 0.15277, -48.0968 )
+layers = 2147483649
+modulate = Color( 1, 0.188235, 0.027451, 1 )
+texture = ExtResource( 30 )
+
+[node name="shower_floor_texture2" type="Sprite3D" parent="env/inside/room_pool/env"]
+transform = Transform( 2.53786, 0, 0, 0, -1.62921e-07, 1, 0, -2.53786, -4.1347e-07, -15.0531, 0.15277, -48.0968 )
+layers = 2147483649
+modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 30 )
+
+[node name="springboard" parent="env/inside/room_pool/env" instance=ExtResource( 33 )]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 4.23583, 0.168209, -40.6948 )
+
+[node name="buffer_addit_col" type="StaticBody" parent="env/inside/room_pool"]
+
+[node name="col" type="CollisionShape" parent="env/inside/room_pool/buffer_addit_col"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6354, 1.08104, -26.2135 )
+shape = SubResource( 12 )
+
+[node name="circle_table" parent="env/inside/room_pool" instance=ExtResource( 32 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2.85766, 0.152104, -41.956 )
+
+[node name="dish_with_cocaine" parent="env/inside/room_pool/circle_table" groups=[
+"relax_cocaine",
+] instance=ExtResource( 34 )]
+transform = Transform( 0.517025, 0, 0, 0, 0.780188, 0, 0, 0, 0.517025, -0.62852, 0.828931, 0 )
+
+[node name="beer_mexico_monkey" parent="env/inside/room_pool/circle_table" groups=[
+"relax_beer",
+] instance=ExtResource( 38 )]
+transform = Transform( 0.040656, 0, 0.498344, 0, 0.5, 0, -0.498344, 0, 0.040656, -0.0585567, 0.803984, -0.532213 )
+mode = 1
+
+[node name="cigarettes_pyro" parent="env/inside/room_pool/circle_table" instance=ExtResource( 39 )]
+transform = Transform( 0.0117108, 0, -0.999931, 0, 1, 0, 0.999931, 0, 0.0117108, 0.326885, 0.869676, 0.61504 )
+mode = 1
+
+[node name="glass" parent="env/inside/room_pool/circle_table" instance=ExtResource( 40 )]
+transform = Transform( 0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.193052, 1.05023, -0.352848 )
+
+[node name="glass3" parent="env/inside/room_pool/circle_table" instance=ExtResource( 40 )]
+transform = Transform( 0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.401055, 1.05023, -0.163877 )
+
+[node name="glass2" parent="env/inside/room_pool/circle_table" instance=ExtResource( 40 )]
+transform = Transform( 0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.450213, 1.05023, -0.514746 )
+
+[node name="cigarette" parent="env/inside/room_pool/circle_table" instance=ExtResource( 41 )]
+transform = Transform( 1, 0, 0, 0, 0.234667, -0.972076, 0, 0.972076, 0.234667, -0.131481, 0.95891, 0.378864 )
+can_sleep = false
+
+[node name="cigarette2" parent="env/inside/room_pool/circle_table" instance=ExtResource( 41 )]
+transform = Transform( 1, 0, 0, 0, 0.234667, -0.972076, 0, 0.972076, 0.234667, -0.131481, 1.12491, 0.378864 )
+can_sleep = false
+
+[node name="cigarette3" parent="env/inside/room_pool/circle_table" instance=ExtResource( 41 )]
+transform = Transform( 1, 0, 0, 0, 0.234667, -0.972076, 0, 0.972076, 0.234667, -0.222667, 1.12491, 0.378864 )
+can_sleep = false
+
+[node name="ashtray" parent="env/inside/room_pool/circle_table" groups=[
+"relax_ashtray",
+] instance=ExtResource( 42 )]
+transform = Transform( -0.0533644, 0, 0.998575, 0, 1, 0, -0.998575, 0, -0.0533644, -0.171847, 0.89023, 0.743107 )
+
+[node name="smoking_face" parent="env/inside/room_pool" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67332, 3.0147, -44.1395 )
+
+[node name="room_shower" type="Spatial" parent="env/inside"]
+
+[node name="chair3" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 0.119522, 0, -1.3686, 0, 1.65689, 0, 1.19873, 0, 0.13646, 9.88006, 1.85305, 9.18792 )
+
+[node name="doll_toy10" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( 1.06776, -0.0099361, -1.20361, 0.190521, 3.82941, -0.0395757, 0.852517, 1.08378, 0.690438, -19.5475, 1.67956, -2.1993 )
+
+[node name="doll_toy2" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( -0.0801814, 0, -0.99678, 0, 1, 0, 0.99678, 0, -0.0801814, -18.6695, 2.7644, -3.29831 )
+
+[node name="chair2" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 1.2033, 0, 0.0656771, 0, 1.65689, 0, -0.0575247, 0, 1.37382, -18.6201, 1.25463, -3.37666 )
+sleeping = true
+
+[node name="doll_toy3" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( -0.675912, 0, -0.736982, 0, 1, 0, 0.736982, 0, -0.675912, -17.1271, 2.64842, -3.72255 )
+
+[node name="chair4" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 0.984526, 0, -0.792601, 0, 1.65689, 0, 0.694224, 0, 1.12404, -17.04, 1.25463, -3.75399 )
+sleeping = true
+
+[node name="doll_toy4" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( -0.768384, 0, -0.639989, 0, 1, 0, 0.639989, 0, -0.768384, -15.2245, 2.5563, -4.01782 )
+
+[node name="chair5" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 0.882861, 0, -0.935779, 0, 1.65689, 0, 0.819631, 0, 1.00797, -15.134, 1.25463, -4.03733 )
+sleeping = true
+
+[node name="doll_toy5" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( -0.0801814, 0, -0.99678, 0, 1, 0, 0.99678, 0, -0.0801814, -18.6695, 2.58523, -8.10714 )
+
+[node name="chair6" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 1.2033, 0, 0.0656771, 0, 1.65689, 0, -0.0575247, 0, 1.37382, -18.6201, 1.25463, -8.18549 )
+sleeping = true
+
+[node name="doll_toy6" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( -0.675912, 0, -0.736982, 0, 1, 0, 0.736982, 0, -0.675912, -17.1271, 2.5156, -8.53138 )
+
+[node name="chair7" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 0.984526, 0, -0.792601, 0, 1.65689, 0, 0.694224, 0, 1.12404, -17.04, 1.25463, -8.56282 )
+sleeping = true
+
+[node name="doll_toy7" parent="env/inside/room_shower" instance=ExtResource( 17 )]
+transform = Transform( -0.768384, 0, -0.639989, 0, 1, 0, 0.639989, 0, -0.768384, -15.6714, 2.5531, -6.2546 )
+
+[node name="chair8" parent="env/inside/room_shower" instance=ExtResource( 13 )]
+transform = Transform( 0.882861, 0, -0.935779, 0, 1.65689, 0, 0.819631, 0, 1.00797, -15.5809, 1.25463, -6.2741 )
+sleeping = true
+
+[node name="shower" parent="env/inside/room_shower" instance=ExtResource( 29 )]
+transform = Transform( -1.7506e-07, 0, -1.07451, 0, 0.9739, 0, 0.717625, 0, -1.16916e-07, -18.583, 0, -49.7797 )
+
+[node name="shower2" parent="env/inside/room_shower" instance=ExtResource( 29 )]
+transform = Transform( -1.7506e-07, 0, -1.07451, 0, 0.9739, 0, 0.717625, 0, -1.16916e-07, -15.0254, 0, -49.7797 )
+
+[node name="water_particles" type="Spatial" parent="env/inside/room_shower"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7847, 4.71668, -48.3466 )
+
+[node name="p" type="Particles" parent="env/inside/room_shower/water_particles"]
+process_material = SubResource( 13 )
+
+[node name="poolday_lvl1" parent="env" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00101852, 0.00187516, 0.0012455 )
+
+[node name="pixel_door" parent="env" instance=ExtResource( 4 )]
+transform = Transform( -0.0276252, 0, 0.755023, 0, 0.755311, 0, -0.999618, 0, -0.0208656, 4.57914, 0, 14.0341 )
+
+[node name="pixel_door2" parent="env" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, 0, -0.755311, 0, 0.755311, 0, 1, 0, -1.23056e-07, 8.32543, 0, 13.9831 )
+is_rotated_door = true
+
+[node name="pixel_door3" parent="env" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -2.46112e-07, 0, 0.893213, 0, 4.09218e-07, 0, -0.948581, -12.0377, 0, 12.2666 )
+item_to_open_key = "WARDROBE_KEY"
+
+[node name="pixel_door5" parent="env" instance=ExtResource( 4 )]
+transform = Transform( -1.81378e-07, 0, 1.05604, 0, 0.942276, 0, -1, 0, -1.54543e-07, -2.56093, 0.0651829, 0.379653 )
+
+[node name="pixel_door6" parent="env" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, 0, -1.05604, 0, 0.942276, 0, 1, 0, -1.72051e-07, 2.64193, 0.0651829, 0.379653 )
+is_rotated_door = true
+
+[node name="pixel_door4" parent="env" instance=ExtResource( 4 )]
+transform = Transform( -1.78159e-07, 0, -1.03731, 0, 0.835803, 0, 1, 0, -1.54543e-07, -17.0836, 0.0380539, 0.465861 )
+is_rotated_door = true
+
+[node name="table_bg" type="Sprite3D" parent="env/pixel_door4/pixel_door" index="0"]
+transform = Transform( -1.41751e-07, 0, 1, 0, 0.592345, 0, -0.917225, 0, -1.71751e-07, 0.254826, 4.74289, 1.23912 )
+visible = false
+texture = ExtResource( 23 )
+
+[node name="room_tip4" type="Spatial" parent="env/pixel_door4/pixel_door" index="1"]
+transform = Transform( -0.00738611, 0, 0.999327, 0, 0.754042, 0, -0.607739, 0, -0.0313596, 0.243297, 4.73778, 1.23038 )
+script = ExtResource( 11 )
+text = "НИКОГДА НЕ
+СПЯЩИЕ"
+text_size = 1.3
+font = SubResource( 14 )
+align = 2
+color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+roughness = 1.0
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+max_steps = 256
+step_size = 1.0
+
+[node name="table" type="Sprite3D" parent="env/pixel_door4/pixel_door" index="2"]
+transform = Transform( -1.83846e-07, 0, 1, 0, 0.754042, 0, -1.18961, 0, -1.71751e-07, 0.236696, 4.74289, 1.23912 )
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 23 )
+
+[node name="light" type="Spatial" parent="."]
+
+[node name="omni_l" type="OmniLight" parent="light" groups=[
+"negative_lamps",
+]]
+transform = Transform( 1, 0, 0, 0, -0.734135, -0.679004, 0, 0.679004, -0.734135, 9.86047, 6.39484, 3.2095 )
+light_energy = 0.75
+light_indirect_energy = 0.0
+light_specular = 0.22
+shadow_enabled = true
+shadow_bias = 0.1
+omni_range = 20.9
+
+[node name="omni_l2" type="OmniLight" parent="light" groups=[
+"negative_lamps",
+]]
+transform = Transform( 1, 0, 0, 0, -0.734135, -0.679004, 0, 0.679004, -0.734135, -18.613, 6.63754, 3.39145 )
+light_energy = 0.76
+light_indirect_energy = 1.6
+light_specular = 0.15
+light_cull_mask = 2147483647
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.594604
+
+[node name="omni_l4" type="SpotLight" parent="light" groups=[
+"negative_lamps",
+]]
+transform = Transform( -0.705739, -0.708133, -0.0219138, -0.0789199, 0.0478393, 0.995732, -0.704062, 0.704457, -0.0896479, -18.7993, 6.98051, -46.3378 )
+light_color = Color( 0.101961, 0.462745, 0.258824, 1 )
+light_energy = 16.0
+light_indirect_energy = 13.66
+light_specular = 1.0
+light_cull_mask = 2147483647
+shadow_enabled = true
+spot_range = 267.9
+spot_angle = 66.0938
+
+[node name="omni_l5" type="SpotLight" parent="light" groups=[
+"negative_lamps",
+]]
+transform = Transform( -0.705739, -0.708133, -0.0219138, 0.515744, -0.534716, 0.669392, -0.485736, 0.461115, 0.742586, -18.7993, 6.98051, -23.7229 )
+light_color = Color( 0.101961, 0.462745, 0.258824, 1 )
+light_energy = 5.91
+light_indirect_energy = 13.66
+light_specular = 1.0
+light_cull_mask = 2147483647
+shadow_enabled = true
+spot_range = 267.9
+spot_angle = 66.0938
+
+[node name="units" type="Spatial" parent="."]
+
+[node name="player" parent="units" instance=ExtResource( 1 )]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.96359, 2.09594, 3.42479 )
+
+[node name="gui" parent="." instance=ExtResource( 36 )]
+
+[editable path="env/pixel_door4"]

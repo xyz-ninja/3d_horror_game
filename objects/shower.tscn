@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://models/shower/shower.glb" type="PackedScene" id=1]
+[ext_resource path="res://shaders/psx_lit.shader" type="Shader" id=2]
+[ext_resource path="res://textures/plates1.jpg" type="Texture" id=3]
+[ext_resource path="res://models/shower/crane/crane.glb" type="PackedScene" id=4]
+[ext_resource path="res://scripts/objects/shower.gd" type="Script" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/specular_intensity = null
+shader_param/resolution = 140.0
+shader_param/cull_distance = 44.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/albedoTex = ExtResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 0.5, 1, 0.5 )
+direction = Vector3( 0, 0, 0 )
+flatness = 0.63
+gravity = Vector3( 0, -6, 2 )
+initial_velocity_random = 0.08
+scale = 3.0
+scale_random = 1.0
+color = Color( 0.0901961, 0.196078, 0.517647, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 1
+
+[sub_resource type="QuadMesh" id=4]
+material = SubResource( 3 )
+size = Vector2( 0.22, 0.22 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.608426, 0.618939, 1.14925 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1.7582, 3.2041, 0.12245 )
+
+[node name="shower" groups=[
+"showers",
+] instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="shower_cabin" parent="." index="0"]
+material/0 = SubResource( 1 )
+
+[node name="p_water" type="Particles" parent="." index="4"]
+transform = Transform( -1.47368e-07, 0.426395, 0.904537, 6.94687e-08, 0.904537, -0.426395, -1, 0, -1.62921e-07, 2.32116, 5.44916, 0 )
+cast_shadow = 0
+emitting = false
+amount = 90
+lifetime = 2.0
+speed_scale = 2.0
+randomness = 0.45
+visibility_aabb = AABB( -1.56322, -3.39251, -1.8072, 3.12644, 6.78502, 3.61441 )
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 4 )
+
+[node name="crane" parent="." index="5" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1.39261, 0, 0, 0, 1.39261, 0.257114, 2.86086, -0.0350246 )
+
+[node name="shower_crane" type="StaticBody" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.812851, 0 )
+
+[node name="col" type="CollisionShape" parent="shower_crane" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.680471, 3.61087, 0.0305095 )
+shape = SubResource( 5 )
+
+[node name="wall_col" type="CollisionShape" parent="shower_crane" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50118, 4.05311, 1.62868 )
+shape = SubResource( 6 )
+
+[node name="wall_col2" type="CollisionShape" parent="shower_crane" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50118, 4.05311, -1.56646 )
+shape = SubResource( 6 )
+
+[editable path="crane"]

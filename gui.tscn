@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/frame_animated_sprite.gd" type="Script" id=1]
+[ext_resource path="res://fonts/pixel4.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://textures/white_texture.png" type="Texture" id=3]
+[ext_resource path="res://scripts/progressbar.gd" type="Script" id=4]
+[ext_resource path="res://textures/noise.jpg" type="Texture" id=5]
+[ext_resource path="res://scripts/gui.gd" type="Script" id=6]
+[ext_resource path="res://textures/water.jpg" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="gui" type="Control" groups=[
+"gui",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effects" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noise" type="Sprite" parent="effects"]
+modulate = Color( 0.247059, 0, 0.160784, 0.215686 )
+position = Vector2( -1, 0 )
+scale = Vector2( 4.34566, 0.871651 )
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 720 )
+script = ExtResource( 1 )
+is_autoplay = true
+autoplay_frames_count = 5
+autoplay_anim_speed = 0.05
+
+[node name="water" type="Sprite" parent="effects"]
+visible = false
+modulate = Color( 1, 0.113725, 0.917647, 0.105882 )
+position = Vector2( 0.78186, -1.7818 )
+scale = Vector2( 17.6966, 4.89219 )
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 128 )
+script = ExtResource( 1 )
+is_autoplay = true
+autoplay_frames_count = 2
+autoplay_anim_speed = 0.12
+
+[node name="use_tip" type="Label" parent="."]
+visible = false
+anchor_left = 0.597
+anchor_top = 1.0
+anchor_right = 0.597
+anchor_bottom = 1.0
+margin_left = -129.532
+margin_top = -29.3181
+margin_right = 286.468
+margin_bottom = 2.68188
+custom_fonts/font = SubResource( 1 )
+text = "ИСПОЛЬЗОВАТЬ"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="task" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -52.0
+margin_right = 38.0
+margin_bottom = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg2" type="Sprite" parent="task"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 11.7924 )
+scale = Vector2( 2.89152, 0.363268 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="bg" type="Sprite" parent="task"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0, 16.3177 )
+scale = Vector2( 3.19239, 0.327913 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="text" type="Label" parent="task"]
+margin_left = 9.0
+margin_top = 16.0
+margin_right = 369.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Попасть в любимый бассейн"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="action_progressbar" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -32.0
+margin_right = 48.0
+margin_bottom = -32.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Sprite" parent="action_progressbar"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -160, 116.973 )
+scale = Vector2( 1.82548, 0.357011 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="bar" type="Sprite" parent="action_progressbar"]
+modulate = Color( 0, 0.203125, 1, 1 )
+position = Vector2( -152.326, 122.688 )
+scale = Vector2( 1.21437, 0.195339 )
+texture = ExtResource( 3 )
+centered = false

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/clothes/gun/gun.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.845848, 0.525137, 0.229174 )
+
+[node name="cloth_gun" type="RigidBody"]
+transform = Transform( 0.69671, 0, 0, 0, 1, 0, 0, 0, 0.69671, 0, 0, 0 )
+
+[node name="gun" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="col" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.591766, 0.174317, 0 )
+shape = SubResource( 1 )
